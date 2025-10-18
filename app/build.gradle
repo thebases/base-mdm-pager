@@ -1,8 +1,8 @@
 /*
- * Headwind MDM: Open Source Android MDM Software
- * https://h-mdm.com
+ * Base MDM: Open Source Android MDM Software
+ * https://thebase.vn
  *
- * Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
+ * Copyright (C) 2025 The Base LTD (https://thebase.vn)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,17 +20,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            storeFile file('C:\\home\\hmdm\\keystore\\keystore.jks')
-            keyAlias = 'kiosk'
-            keyPassword 'aGVhZHdpbmRSdWxlS2lvc2s='
-            storePassword 'aGVhZHdpbmRNYWlu'
-        }
-    }
+//    signingConfigs {
+//        config {
+//            storeFile file('C:\\home\\hmdm\\keystore\\keystore.jks')
+//            keyAlias = 'kiosk'
+//            keyPassword 'aGVhZHdpbmRSdWxlS2lvc2s='
+//            storePassword 'aGVhZHdpbmRNYWlu'
+//        }
+//    }
     compileSdkVersion 34
     defaultConfig {
-        applicationId "com.hmdm.pager"
+        applicationId "com.base.pager"
         minSdkVersion 14
         targetSdkVersion 34
         versionCode 201
@@ -41,13 +41,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
+//            signingConfig signingConfigs.config
         }
         debug {
-            signingConfig signingConfigs.config
+//            signingConfig signingConfigs.config
         }
     }
-    namespace 'com.hmdm.pager'
+
+    namespace 'com.base.pager'
 }
 
 dependencies {
@@ -68,5 +69,5 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.4'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.4'
 
-    implementation files('libs/hmdm-1.1.7.aar')
+    implementation files('libs/base_mdm.aar')
 }

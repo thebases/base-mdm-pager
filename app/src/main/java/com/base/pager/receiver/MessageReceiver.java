@@ -1,8 +1,8 @@
 /*
- * Headwind MDM: Open Source Android MDM Software
- * https://h-mdm.com
+ * Base MDM: Open Source Android MDM Software
+ * https://thebase.vn
  *
- * Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
+ * Copyright (C) 2025 The Base LTD (https://thebase.vn)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.hmdm.pager.receiver;
+package com.base.pager.receiver;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -32,16 +32,16 @@ import android.os.PowerManager;
 import androidx.core.app.NotificationCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.hmdm.MDMPushHandler;
-import com.hmdm.MDMPushMessage;
-import com.hmdm.MDMService;
-import com.hmdm.pager.Const;
-import com.hmdm.pager.R;
-import com.hmdm.pager.db.DatabaseHelper;
-import com.hmdm.pager.db.MessageTable;
-import com.hmdm.pager.http.json.Message;
-import com.hmdm.pager.service.PagerService;
-import com.hmdm.pager.task.UpdateStatusTask;
+import com.base.MDMPushHandler;
+import com.base.MDMPushMessage;
+import com.base.MDMService;
+import com.base.pager.Const;
+import com.base.pager.R;
+import com.base.pager.db.DatabaseHelper;
+import com.base.pager.db.MessageTable;
+import com.base.pager.http.json.Message;
+import com.base.pager.service.PagerService;
+import com.base.pager.task.UpdateStatusTask;
 
 import org.json.JSONObject;
 
@@ -91,7 +91,7 @@ public class MessageReceiver extends MDMPushHandler {
     @Override
     public void onMessageReceived(MDMPushMessage mdmPushMessage) {
         PowerManager pm = ( PowerManager )context.getSystemService(Context.POWER_SERVICE);
-        PowerManager.WakeLock wl = pm.newWakeLock( PowerManager.PARTIAL_WAKE_LOCK, "com.hmdm.pager:wakelock" );
+        PowerManager.WakeLock wl = pm.newWakeLock( PowerManager.PARTIAL_WAKE_LOCK, "com.base.pager:wakelock" );
         wl.acquire();
 
         JSONObject rawMsg = mdmPushMessage.getData();

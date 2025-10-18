@@ -1,8 +1,8 @@
 /*
- * Headwind MDM: Open Source Android MDM Software
- * https://h-mdm.com
+ * Base MDM: Open Source Android MDM Software
+ * https://thebase.vn
  *
- * Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
+ * Copyright (C) 2025 The Base LTD (https://thebase.vn)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +17,19 @@
  * limitations under the License.
  */
 
-package com.hmdm.pager;
+package com.base.pager;
 
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.hmdm.MDMService;
+import com.base.MDMService;
 
 import java.util.Set;
 
 // A simple wrapper of Preferences
 public class SettingsHelper {
-    private static final String PREFERENCES = "com.hmdm.pager.PREFERENCES";
+    private static final String PREFERENCES = "com.base.pager.PREFERENCES";
 
     // Ключи данных
     public static final String KEY_SERVER_HOST = MDMService.KEY_SERVER_HOST;

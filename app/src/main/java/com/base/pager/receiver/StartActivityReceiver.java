@@ -1,8 +1,8 @@
 /*
- * Headwind MDM: Open Source Android MDM Software
- * https://h-mdm.com
+ * Base MDM: Open Source Android MDM Software
+ * https://thebase.vn
  *
- * Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
+ * Copyright (C) 2025 The Base LTD (https://thebase.vn)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,26 +17,19 @@
  * limitations under the License.
  */
 
-package com.hmdm.pager.receiver;
+package com.base.pager.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.util.Log;
 
-import com.hmdm.pager.Const;
-import com.hmdm.pager.service.PagerService;
+import com.base.pager.MainActivity;
 
-public class BootReceiver extends BroadcastReceiver {
+public class StartActivityReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i(Const.LOG_TAG, "Pager received BOOT_COMPLETED event");
-        Intent newIntent = new Intent(context, PagerService.class);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            context.startForegroundService(newIntent);
-        } else {
-            context.startService(newIntent);
-        }
+        Intent outIntent = new Intent(context.getApplicationContext(), MainActivity.class);
+        outIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        context.startActivity( outIntent );
     }
 }

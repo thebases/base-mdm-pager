@@ -1,8 +1,8 @@
 /*
- * Headwind MDM: Open Source Android MDM Software
- * https://h-mdm.com
+ * Base MDM: Open Source Android MDM Software
+ * https://thebase.vn
  *
- * Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
+ * Copyright (C) 2025 The Base LTD (https://thebase.vn)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.hmdm.pager;
+package com.base.pager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -39,27 +39,27 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hmdm.HeadwindMDM;
-import com.hmdm.MDMException;
-import com.hmdm.MDMPushHandler;
-import com.hmdm.MDMPushMessage;
-import com.hmdm.MDMService;
-import com.hmdm.pager.db.DatabaseHelper;
-import com.hmdm.pager.db.MessageTable;
-import com.hmdm.pager.http.json.Message;
-import com.hmdm.pager.service.PagerService;
-import com.hmdm.pager.task.UpdateStatusTask;
+import com.base.BaseMDM;
+import com.base.MDMException;
+import com.base.MDMPushHandler;
+import com.base.MDMPushMessage;
+import com.base.MDMService;
+import com.base.pager.db.DatabaseHelper;
+import com.base.pager.db.MessageTable;
+import com.base.pager.http.json.Message;
+import com.base.pager.service.PagerService;
+import com.base.pager.task.UpdateStatusTask;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements HeadwindMDM.EventHandler {
+public class MainActivity extends AppCompatActivity implements BaseMDM.EventHandler {
 
     private SettingsHelper settings;
 
-    private HeadwindMDM headwindMDM;
+    private BaseMDM headwindMDM;
     private boolean mdmConnected = false;
 
     private TextView emptyTextView;
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements HeadwindMDM.Event
         recyclerView.addItemDecoration(dividerItemDecoration);
 
         settings = SettingsHelper.getInstance(this);
-        headwindMDM = HeadwindMDM.getInstance();
+        headwindMDM = BaseMDM.getInstance();
 
         Intent intent = new Intent(this, PagerService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements HeadwindMDM.Event
 
         if (!headwindMDM.isConnected()) {
             if (!headwindMDM.connect(this, this)) {
-                // Your application is running outside Headwind MDM
+                // Your application is running outside Base MDM
                 Toast.makeText(MainActivity.this, getString(R.string.mdm_connect_error), Toast.LENGTH_LONG).show();
             }
         } else {
@@ -224,21 +224,21 @@ public class MainActivity extends AppCompatActivity implements HeadwindMDM.Event
     }
 
     @Override
-    public void onHeadwindMDMConnected() {
-        // Connected to Headwind MDM, now you can load settings and use other MDM functions
-        MDMService.Log.i(Const.LOG_TAG, "Activity connected to Headwind MDM");
+    public void onBaseMDMConnected() {
+        // Connected to Base MDM, now you can load settings and use other MDM functions
+        MDMService.Log.i(Const.LOG_TAG, "Activity connected to Base MDM");
         queryMdm();
     }
 
     @Override
-    public void onHeadwindMDMDisconnected() {
-        MDMService.Log.i(Const.LOG_TAG, "Activity disconnected from Headwind MDM");
+    public void onBaseMDMDisconnected() {
+        MDMService.Log.i(Const.LOG_TAG, "Activity disconnected from Base MDM");
     }
 
     @Override
-    public void onHeadwindMDMConfigChanged() {
+    public void onBaseMDMConfigChanged() {
         // Settings were changed on the server, you need to reload them
-        MDMService.Log.i(Const.LOG_TAG, "Reloading configuration from Headwind MDM");
+        MDMService.Log.i(Const.LOG_TAG, "Reloading configuration from Base MDM");
         queryMdm();
     }
 

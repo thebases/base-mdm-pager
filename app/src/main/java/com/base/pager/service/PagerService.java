@@ -1,8 +1,8 @@
 /*
- * Headwind MDM: Open Source Android MDM Software
- * https://h-mdm.com
+ * Base MDM: Open Source Android MDM Software
+ * https://thebase.vn
  *
- * Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
+ * Copyright (C) 2025 The Base LTD (https://thebase.vn)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.hmdm.pager.service;
+package com.base.pager.service;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -34,11 +34,11 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
-import com.hmdm.MDMService;
-import com.hmdm.pager.Const;
-import com.hmdm.pager.R;
-import com.hmdm.pager.SettingsHelper;
-import com.hmdm.pager.receiver.MessageReceiver;
+import com.base.MDMService;
+import com.base.pager.Const;
+import com.base.pager.R;
+import com.base.pager.SettingsHelper;
+import com.base.pager.receiver.MessageReceiver;
 
 public class PagerService extends Service implements MDMService.ResultHandler {
 
@@ -47,7 +47,7 @@ public class PagerService extends Service implements MDMService.ResultHandler {
     private MessageReceiver messageReceiver;
 
     public static final int NOTIFICATION_ID = 111;
-    public static final String CHANNEL_ID = "com.hmdm.pager";
+    public static final String CHANNEL_ID = "com.base.pager";
 
     @Nullable
     @Override
@@ -58,13 +58,13 @@ public class PagerService extends Service implements MDMService.ResultHandler {
     @Override
     public void onMDMConnected() {
         // Great, we're connected!
-        MDMService.Log.i(Const.LOG_TAG, "service connected to Headwind MDM");
+        MDMService.Log.i(Const.LOG_TAG, "service connected to Base MDM");
     }
 
     @Override
     public void onMDMDisconnected() {
-        // Reconnect (this could be after crash of Headwind MDM!)
-        MDMService.Log.i(Const.LOG_TAG, "service disconnected from Headwind MDM");
+        // Reconnect (this could be after crash of Base MDM!)
+        MDMService.Log.i(Const.LOG_TAG, "service disconnected from Base MDM");
         new Handler().postDelayed(new MDMReconnectRunnable(), Const.HMDM_RECONNECT_DELAY_FIRST);
     }
 
@@ -73,7 +73,7 @@ public class PagerService extends Service implements MDMService.ResultHandler {
         public void run() {
             if (!mdmService.connect(PagerService.this, PagerService.this)) {
                 // Retry in 1 minute
-                MDMService.Log.i(Const.LOG_TAG, "Failed to connect to Headwind MDM, scheduling connection");
+                MDMService.Log.i(Const.LOG_TAG, "Failed to connect to Base MDM, scheduling connection");
                 new Handler().postDelayed(this, Const.HMDM_RECONNECT_DELAY_NEXT);
             }
         }

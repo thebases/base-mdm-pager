@@ -1,5 +1,5 @@
 <!--
-  ~ Headwind MDM: Open Source Android MDM Software
+  ~ Base MDM: Open Source Android MDM Software
   ~ https://h-mdm.com
   ~
   ~ Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
@@ -24,7 +24,7 @@
     <string name="remove">Удалить</string>
     <string name="cancel">Отмена</string>
     <string name="messages_removed">Все сообщения были удалены.</string>
-    <string name="mdm_connect_error">Ошибка подключения к Headwind MDM. Проверьте, что вы запускаете пейджер в лаунчере Headwind MDM.</string>
-    <string name="notification_text">Пейджер Headwind MDM активен</string>
+    <string name="mdm_connect_error">Ошибка подключения к Base MDM. Проверьте, что вы запускаете пейджер в лаунчере Base MDM.</string>
+    <string name="notification_text">Пейджер Base MDM активен</string>
     <string name="no_messages">Нет сообщений</string>
 </resources>

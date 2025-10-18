@@ -1,8 +1,8 @@
 /*
- * Headwind MDM: Open Source Android MDM Software
- * https://h-mdm.com
+ * Base MDM: Open Source Android MDM Software
+ * https://thebase.vn
  *
- * Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
+ * Copyright (C) 2025 The Base LTD (https://thebase.vn)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,17 +17,17 @@
  * limitations under the License.
  */
 
-package com.hmdm.pager.task;
+package com.base.pager.task;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.hmdm.pager.Const;
-import com.hmdm.pager.SettingsHelper;
-import com.hmdm.pager.http.ServerService;
-import com.hmdm.pager.http.ServerServiceKeeper;
-import com.hmdm.pager.http.json.Message;
-import com.hmdm.pager.http.json.ServerResponse;
+import com.base.pager.Const;
+import com.base.pager.SettingsHelper;
+import com.base.pager.http.ServerService;
+import com.base.pager.http.ServerServiceKeeper;
+import com.base.pager.http.json.Message;
+import com.base.pager.http.json.ServerResponse;
 
 import retrofit2.Response;
 

@@ -1,5 +1,5 @@
 <!--
-  ~ Headwind MDM: Open Source Android MDM Software
+  ~ Base MDM: Open Source Android MDM Software
   ~ https://h-mdm.com
   ~
   ~ Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
@@ -20,7 +20,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.hmdm.pager.MainActivity">
+    tools:context="com.base.pager.MainActivity">
     <item
         android:id="@+id/action_purge"
         android:orderInCategory="100"

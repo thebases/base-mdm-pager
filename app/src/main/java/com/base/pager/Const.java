@@ -1,8 +1,8 @@
 /*
- * Headwind MDM: Open Source Android MDM Software
- * https://h-mdm.com
+ * Base MDM: Open Source Android MDM Software
+ * https://thebase.vn
  *
- * Copyright (C) 2020 Headwind Solutions LLC (http://h-sms.com)
+ * Copyright (C) 2025 The Base LTD (https://thebase.vn)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-package com.hmdm.pager;
+package com.base.pager;
 
 public class Const {
-    public static final String LOG_TAG = "com.hmdm.Pager";
+    public static final String LOG_TAG = "com.base.pager";
     public static final int CONNECTION_TIMEOUT = 10;
 
     public static final String PUSH_MESSAGE_TYPE = "textMessage";
