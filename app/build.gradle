@@ -20,35 +20,52 @@
 apply plugin: 'com.android.application'
 
 android {
-//    signingConfigs {
-//        config {
-//            storeFile file('C:\\home\\hmdm\\keystore\\keystore.jks')
-//            keyAlias = 'kiosk'
-//            keyPassword 'aGVhZHdpbmRSdWxlS2lvc2s='
-//            storePassword 'aGVhZHdpbmRNYWlu'
-//        }
-//    }
-    compileSdkVersion 34
+    compileSdk 35
+
+    signingConfigs {
+        config {
+            storeFile file('C:\\Git\\android_keystores\\base\\base.jks')
+            keyAlias = 'base'
+            keyPassword 'Base12345678@'
+            storePassword 'Base12345678@'
+        }
+        debug {
+            storeFile file('C:\\Git\\android_keystores\\base\\base.jks')
+            keyAlias = 'base'
+            keyPassword 'Base12345678@'
+            storePassword 'Base12345678@'
+        }
+    }
     defaultConfig {
         applicationId "com.base.pager"
-        minSdkVersion 14
-        targetSdkVersion 34
-        versionCode 201
-        versionName "2.01"
+        minSdk 24
+        targetSdk 35
+        versionCode 1000
+        versionName '1.0.0.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.config
+            signingConfig signingConfigs.config
         }
         debug {
-//            signingConfig signingConfigs.config
+            signingConfig signingConfigs.debug
         }
     }
 
     namespace 'com.base.pager'
+}
+
+static def releaseTime() {
+    return new Date().format("ddMMyyyy", TimeZone.getTimeZone("UTC"))
+}
+
+android.applicationVariants.all {
+    variant -> variant.outputs.all {
+        outputFileName = "pager_${variant.buildType.name}_v${variant.versionName}_${releaseTime()}.apk"
+    }
 }
 
 dependencies {
