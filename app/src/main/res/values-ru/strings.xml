@@ -27,4 +27,5 @@
     <string name="mdm_connect_error">Ошибка подключения к Headwind MDM. Проверьте, что вы запускаете пейджер в лаунчере Headwind MDM.</string>
     <string name="notification_text">Пейджер Headwind MDM активен</string>
     <string name="no_messages">Нет сообщений</string>
+    <string name="message_copied">Текст скопирован</string>
 </resources>
