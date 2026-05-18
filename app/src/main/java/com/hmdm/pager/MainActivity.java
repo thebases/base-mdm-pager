@@ -19,6 +19,8 @@
 
 package com.hmdm.pager;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -281,6 +283,14 @@ public class MainActivity extends AppCompatActivity implements HeadwindMDM.Event
             Message message = messages.get(position);
             holder.textViewDate.setText(timeFormat.format(new Date(message.getTs())));
             holder.textViewMessage.setText(message.getText());
+            holder.itemView.setOnLongClickListener(v -> {
+                ClipboardManager clipboard =
+                        (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Pager message", message.getText());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(context, R.string.message_copied, Toast.LENGTH_SHORT).show();
+                return true;
+            });
         }
 
         @Override

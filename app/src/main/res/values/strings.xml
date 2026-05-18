@@ -27,4 +27,5 @@
     <string name="mdm_connect_error">Failed to connect with Headwind MDM. Please make sure you\'re running pager in the Headwind MDM launcher.</string>
     <string name="notification_text">Headwind MDM Pager Service is active</string>
     <string name="no_messages">No messages received yet</string>
+    <string name="message_copied">Text copied</string>
 </resources>
